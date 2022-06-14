@@ -24,6 +24,7 @@
    <input type="hidden" name="bookId" value="${bookId}" />
    <input type="submit" value="삭제" />
   </form>
+  
   <p>
    <a href="/list">목록으로</a>
   </p>
