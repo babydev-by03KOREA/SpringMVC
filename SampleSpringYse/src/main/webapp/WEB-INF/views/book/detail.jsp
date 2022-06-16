@@ -26,7 +26,7 @@
   </form>
   
   <p>
-   <a href="/list">목록으로</a>
+   <a href="/list.do">목록으로</a>
   </p>
  </body>
 </html>
