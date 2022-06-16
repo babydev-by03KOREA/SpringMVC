@@ -15,8 +15,11 @@ public class BookController {
 	@Autowired
 	BookService bookService;
 	
+//	사용자 요청에 어떠한 요청을 해줘야하는지 컨트롤러에서 
+//	찾을때 사용하는 Annotation -> RequestMapping
 	@RequestMapping(value="/create.do", method = RequestMethod.GET)
 	public ModelAndView create() {
+//		create.do라는 요청이 들어왔을 때, create()라는 메소드를 실행해줘!
 	    return new ModelAndView("book/create");
 	}
 	
