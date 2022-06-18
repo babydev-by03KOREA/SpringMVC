@@ -3,6 +3,14 @@
 <html>
 <head>
 	<title>Home</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');
+	
+		body {
+			margin: 0;
+			font-family: 'Source Sans Pro', sans-serif;
+		}
+	</style>
 </head>
 <body>
 <h1>
