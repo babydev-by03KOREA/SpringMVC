@@ -23,17 +23,13 @@
 </style>
 </head>
 <body>
-	<h1>고객님의 회원가입 정보입니다!</h1>
-	<div class="info">
+	<h1>고객님의 로그인 정보입니다!</h1>
+	<div class="login">
 		<ul>
-			<li class="info__ID">${userID}</li>
-			<li class="info__PWD">${userPassword}</li>
-			<li class="info__Name">${userName}</li>
-			<li class="info__Gender">${userGender}</li>
-			<li class="info__Email">${userEmail}</li>
-			<li class="info__Agree">${userAgreement}</li>
+			<li class="login__ID">${userID}</li>
+			<li class="login__PWD">${userPassword}</li>
 		</ul>
-	</div><br />
+	</div>
 	<div class="main__do">
 		<a href="/mvc/resources/html/index.html" style="text-decoration: none; color: black">처음으로 돌아가기 -></a>
 	</div>

@@ -2,19 +2,24 @@ package com.spring.mvc.member_controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spring.mvc.member.MemberDTO;
+import com.spring.mvc.member_service.MemberService;
 
 @Controller
 public class memberController {
 //	@Resource(name="memService")
-	MemberService service;
-	
-	@RequestMapping(value="userJoin.do", method = RequestMethod.POST)
+	@Autowired
+	MemberService service;	
+	// MemberService service = new MemberService();도 가능 
+	// RequestMapping("/member") 공통된부분 추출
+	@RequestMapping(value="/userJoin.do", method = RequestMethod.POST)
 	public String memJoin(Model model, HttpServletRequest request) {
 		String userID = request.getParameter("userID");
 		String userPassword = request.getParameter("userPassword");
@@ -35,10 +40,12 @@ public class memberController {
 		return "memberPro";	// memberPro.jsp
 	}
 	
-	@RequestMapping(value="userLogin.do", method = RequestMethod.POST)
-	public String memLogin(Model model, HttpServletRequest request) {
-		String userID = request.getParameter("userID");
-		String userPassword = request.getParameter("userPassword");
+	@RequestMapping(value="/userLogin.do", method = RequestMethod.POST)
+	public String memLogin(Model model, @RequestParam("userID") String userID, @RequestParam("UserPassword") String userPassword) {
+		
+//		request를 사용하지않고 annotation 사용하는 방법
+//		String userID = request.getParameter("userID");
+//		String userPassword = request.getParameter("userPassword");
 		
 		MemberDTO member = service.memberSearch(userID, userPassword);
 		
@@ -49,6 +56,6 @@ public class memberController {
 			e.printStackTrace();
 		}
 		
-		return "memberPro";	// memberPro.jsp
+		return "loginPro";	// loginPro.jsp
 	}
 }
