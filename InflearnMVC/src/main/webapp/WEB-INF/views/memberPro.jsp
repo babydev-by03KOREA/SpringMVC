@@ -33,8 +33,8 @@
 			<li class="info__Email">${userEmail}</li>
 			<li class="info__Agree">${userAgreement}</li>
 		</ul>
-	</div>
-	    <div class="main__do">
+	</div><br />
+	<div class="main__do">
 		<a href="/mvc/resources/html/index.html" style="text-decoration: none; color: black">처음으로 돌아가기 -></a>
 	</div>
 </body>

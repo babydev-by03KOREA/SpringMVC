@@ -23,6 +23,10 @@
 	
 	<context:component-scan base-package="com.spring.mvc" />
 	
+	<!-- 객체생성 & @Autowired (방법2)-->
+	<!-- <beans:bean id = "service" class = "com.spring.mvc.member_service"></beans:bean> -->
 	
+	<!-- 내가 만드는 서비스마드 @Service 를 붙여주면 됨! (방법3)-->
+	<context:component-scan base-package="com.spring.mvc"></context:component-scan>
 	
 </beans:beans>
