@@ -16,9 +16,9 @@
 	}
 	
 	.main__do {
-    		display: flex;
-        	margin: 20px;
-        	justify-content: center;
+    	display: flex;
+        margin: 20px;
+        justify-content: center;
     }
 </style>
 </head>
@@ -37,7 +37,7 @@
 		</ul>
 	</div><br />
 	<div class="main__do">
-		<a href="/mvc/resources/html/index.html" style="text-decoration: none; color: black">처음으로 돌아가기 -></a>
+		<a href="/mvc/resources/html/index.html" style="text-decoration: none; color: black">처음으로 돌아가기 =></a>
 	</div>
 </body>
 </html>

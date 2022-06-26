@@ -31,7 +31,7 @@
 		</ul>
 	</div>
 	<div class="main__do">
-		<a href="/mvc/resources/html/index.html" style="text-decoration: none; color: black">처음으로 돌아가기 -></a>
+		<a href="/mvc/resources/html/index.html" style="text-decoration: none; color: black">처음으로 돌아가기 =></a>
 	</div>
 </body>
 </html>

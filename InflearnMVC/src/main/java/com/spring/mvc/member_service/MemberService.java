@@ -1,5 +1,9 @@
 package com.spring.mvc.member_service;
 
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -17,38 +21,61 @@ public class MemberService implements IMemberService {
 	MemberDAO dao;
 	
 	@Override
-	public void memberRegister(String userID, String userPassword, String userName, String userGender, String userEmail,
-			String userAgreement) {
-		System.out.println("memberRegister()");
-		System.out.println("userID : " + userID);
-		System.out.println("userPassword : " + userPassword);
-		System.out.println("userName : " + userName);
-		System.out.println("userGender : " + userGender);
-		System.out.println("userEmail : " + userEmail);
-		System.out.println("userAgreement : " + userAgreement);
-		dao.memberInsert(userID, userPassword, userName, userGender, userEmail, userAgreement);
+	public void memberRegister(MemberDTO member) {
+		printMembers(dao.memberInsert(member));
 	}
 
 	@Override
-	public MemberDTO memberSearch(String userID, String userPassword) {
-		System.out.println("memberSearch()");
-		System.out.println("userID: " + userID);
-		System.out.println("userPWD: " + userPassword);
+	public void memberSearch(MemberDTO member) {
+		printMember(dao.memberSelect(member));
+	}
 
-		MemberDTO member = dao.memberSelect(userID, userPassword);
+	@Override
+	public MemberDTO[] memberModify(MemberDTO member) {
+		MemberDTO memBef = dao.memberSelect(member);
+		MemberDTO memAft = dao.memberUpdate(member);
+		printMember(memAft);
 		
-		return member;
+		return new MemberDTO[]{memBef, memAft};
 	}
 
 	@Override
-	public void memberModify() {
-		// TODO Auto-generated method stub
+	public void memberRemove(MemberDTO member) {
+		printMembers(dao.memberDelete(member));
+	}
+	
+	private void printMembers(Map<String, MemberDTO> map) {
+		Set<String> keys = map.keySet();
+		Iterator<String> Iterator = keys.iterator();
 		
+		while (Iterator.hasNext()) {
+			String key = Iterator.next();
+			MemberDTO mem = map.get(key);
+			printMember(mem);
+		}
 	}
-
-	@Override
-	public void memberRemove() {
-		// TODO Auto-generated method stub
+	
+	private void printMember(MemberDTO mem) {
+		System.out.print("ID:" + mem.getUserID() + "\t");
+		System.out.print("|PW:" + mem.getUserPassword() + "\t");
+		System.out.print("|NAME:" + mem.getUserName() + "\t");
+		System.out.print("|MAIL:" + mem.getUserEmail() + "\t");
+		System.out.print("|Gender:" + mem.getUserGender() + "\t");
+		System.out.print("|Agree?:" + mem.getUserAgreement() + "\t");
+		
+//		List<MemPhone> memPhones = mem.getMemPhones();
+//		for(MemPhone memPhone : memPhones) {
+//			System.out.print("|PHONE:" + memPhone.getMemPhone1() + " - " + 
+//											   memPhone.getMemPhone2() + " - " + 
+//											   memPhone.getMemPhone3() + "\t");
+//		}
+		
+		System.out.print("ID:" + mem.getUserID() + "\t");
+		System.out.print("|PW:" + mem.getUserPassword() + "\t");
+		System.out.print("|NAME:" + mem.getUserName() + "\t");
+		System.out.print("|MAIL:" + mem.getUserEmail() + "\t");
+		System.out.print("|Gender:" + mem.getUserGender() + "\t");
+		System.out.print("|Agree?:" + mem.getUserAgreement() + "\t");
 		
 	}
 	
